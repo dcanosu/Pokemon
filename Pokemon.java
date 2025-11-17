@@ -1,5 +1,5 @@
 public class Pokemon {
-    
+
     private int id;
     private String nombre;
     private String tipo;
@@ -7,12 +7,10 @@ public class Pokemon {
     private int defensa;
     private String entrenador;
 
-    public Pokemon(int id, String nombre, String tipo, int ataque, int defensa, String entrenador) {
+    public Pokemon(int id, String nombre, String tipo, String entrenador) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
-        this.ataque = ataque;
-        this.defensa = defensa;
         this.entrenador = entrenador;
 
         this.ataque = (int) (Math.random() * 100) + 1;
@@ -42,7 +40,7 @@ public class Pokemon {
     public String getEntrenador() {
         return entrenador;
     }
-
+    
     @Override
     public String toString() {
         return "id='" + id + '\'' +
@@ -53,5 +51,4 @@ public class Pokemon {
                 ", entrenador='" + entrenador + '\'' +
                 '}';
     }
-
 }
