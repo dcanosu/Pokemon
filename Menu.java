@@ -21,41 +21,11 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
                 
                 switch (opcion) {
                     case 1:
-                        // Asumimos que quieres ver la lista ordenada por ID
-                        CalculosPokemon.ordenarPorId(pokemones);
-                        ImpresionPokemon.imprimirEncabezado();
-                        ImpresionPokemon.imprimirPokemones(pokemones);
+                        Imprimir.imprimirEncabezado();
+                        Imprimir.imprimirPokemones(pokemones);
                         break;
                     case 2:
-                        // Usar el método de Interfaz que pide datos y muestra el resultado
-                        Liga.ejecutarBusqueda(pokemones, scanner);
-                        break;
-                    case 3:
-                        // 🛑 REQUISITO BINARIO: Primero ordenar por ID
-                        CalculosPokemon.ordenarPorId(pokemones); 
-                        
-                        System.out.print("\nIngrese el ID del Pokémon a buscar (Búsqueda Binaria): ");
-                        if (scanner.hasNextInt()) {
-                            int idBuscado = scanner.nextInt();
-                            scanner.nextLine();
-                            
-                            Pokemon encontrado = Liga.buscarBinarioPorId(pokemones, idBuscado);
-                            if (encontrado != null) {
-                                System.out.println("\n✅ Pokémon ENCONTRADO por ID: " + encontrado.getNombre());
-                                System.out.println(encontrado.toString());
-                            } else {
-                                System.out.println("\n❌ ERROR: El ID " + idBuscado + " no se encuentra en la lista.");
-                            }
-                        } else {
-                            System.out.println("❌ Entrada inválida. Debe ingresar un número.");
-                            scanner.nextLine();
-                        }
-                        break;
-                    case 4:
-                        CalculosPokemon.ordenarPorAtaqueSeleccion(pokemones);
-                        System.out.println("\n--- LISTA ORDENADA POR ATAQUE (SELECCIÓN) ---");
-                        ImpresionPokemon.imprimirEncabezado();
-                        ImpresionPokemon.imprimirPokemones(pokemones);
+                        Busqueda.ejecutarBusqueda(pokemones, scanner);
                         break;
                     case 0:
                         System.out.println("\nGracias por usar la aplicación de la Liga Pokémon. ¡Hasta pronto!");
@@ -65,7 +35,7 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
                 }
             } else {
                 System.out.println("\nEntrada inválida. Por favor, ingrese un número.");
-                scanner.nextLine(); // Limpiar la entrada no numérica
+                scanner.nextLine();
             }
         } while (opcion != 0);
     }
