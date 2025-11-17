@@ -1,8 +1,10 @@
 public class Imprimir {
-    public static void imprimirEncabezado() {
+    public static void imprimirEncabezado(String titulo) {
+    
     int repeticiones = 65;
     System.out.println("\n"+"=".repeat(repeticiones));
-    System.out.println("                     LISTA DE POKEMONES");
+    System.out.println("                      " + titulo);
+    // System.out.println("                     LISTA DE POKEMONES");
     System.out.println("=".repeat(repeticiones)+"\n");
     System.out.printf("%-5s | %-15s | %-12s | %-8s | %-8s | %-10s%n",
                 "Id", "Nombre", "Tipo", "Ataque", "Defensa", "Entrenador");

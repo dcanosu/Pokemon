@@ -21,11 +21,16 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
                 
                 switch (opcion) {
                     case 1:
-                        Imprimir.imprimirEncabezado();
+                        Imprimir.imprimirEncabezado("LISTA DE POKEMONES");
                         Imprimir.imprimirPokemones(pokemones);
                         break;
                     case 2:
                         Busqueda.ejecutarBusqueda(pokemones, scanner);
+                        break;
+                    case 3:
+                        Imprimir.imprimirEncabezado("LISTA DE POKEMONES POR ATAQUE");
+                        Ordenamiento.ordenarPorAtaqueSeleccion(pokemones);
+                        Imprimir.imprimirPokemones(pokemones);
                         break;
                     case 0:
                         System.out.println("\nGracias por usar la aplicación de la Liga Pokémon. ¡Hasta pronto!");
@@ -36,6 +41,7 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
             } else {
                 System.out.println("\nEntrada inválida. Por favor, ingrese un número.");
                 scanner.nextLine();
+                opcion = -1;
             }
         } while (opcion != 0);
     }
