@@ -1,16 +1,13 @@
 <p align="left">
   <img src="https://img.shields.io/badge/Java-FF6F00?style=for-the-badge&logo=openjdk&logoColor=white"/>
 
-  <!-- Badge dinámico de Java -->
   <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/dcanosu/Pokemon/main/.github/badges/java.json&style=for-the-badge"/>
 
-  <!-- Last commit automático -->
   <img src="https://img.shields.io/github/last-commit/dcanosu/Pokemon?style=for-the-badge"/>
 
-  <img src="https://img.shields.io/badge/Proyecto-Final-4c1?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-Progreso-green?style=for-the-badge"/>
-</p>
-
+  <img src="https://img-shields.io/badge/Proyecto-Final-4c1?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Completado-green?style=for-the-badge"/> 
+  </p>
 
 # 🏆 Proyecto Final: Liga Pokémon con Arreglos y Algoritmos Básicos
 

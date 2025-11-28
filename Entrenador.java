@@ -18,12 +18,40 @@ public class Entrenador {
         this.porcentajeVictorias = 0.0;
     }
 
-    public String getNombre() { return nombre; }
-    public int[] getEquipoIds() { return equipoIds; }
-    public int getPj() { return pj; }
-    public int getPg() { return pg; }
-    public int getPp() { return pp; }
-    public double getPorcentajeVictorias() { return porcentajeVictorias; }
+
+    public int getId() {
+        return id;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    public int[] getEquipoIds() {
+        return equipoIds;
+    }
+
+
+    public int getPj() {
+        return pj;
+    }
+
+
+    public int getPg() {
+        return pg;
+    }
+
+
+    public int getPp() {
+        return pp;
+    }
+
+
+    public double getPorcentajeVictorias() {
+        return porcentajeVictorias;
+    }
 
     public void actualizarEstadisticas(boolean gano) {
         this.pj++;
