@@ -80,6 +80,58 @@ public class Registro {
         }return pokemones;
     }
 
+    public static Entrenador[] registrarEntrenadoresManual(Pokemon[] pokedex, Scanner scanner) {
+        System.out.println("\n--- REGISTRO MANUAL DE ENTRENADORES ---");
+        
+        final int POKEMON_POR_EQUIPO = 6;
+        if (pokedex == null || pokedex.length < POKEMON_POR_EQUIPO) {
+            System.out.println("ERROR: La Pokedex debe tener al menos " + POKEMON_POR_EQUIPO + " Pokémones para armar equipos.");
+            return null;
+        }
+
+        System.out.print("¿Cuántos entrenadores deseas registrar? (Mín. 2, Máx. 4): ");
+        
+        if (!scanner.hasNextInt()) {
+            System.out.println("Entrada inválida.");
+            scanner.nextLine();
+            return null;
+        }
+        int cantidad = scanner.nextInt();
+        scanner.nextLine();
+        
+        if (cantidad < 2 || cantidad > 4) {
+            System.out.println("Cantidad de entrenadores inválida para el campeonato.");
+            return null;
+        }
+        
+        Entrenador[] entrenadores = new Entrenador[cantidad];
+        
+        for (int i = 0; i < cantidad; i++) {
+            System.out.println("\n--- Entrenador #" + (i + 1) + " ---");
+            System.out.print("Nombre del Entrenador: ");
+            String nombre = scanner.nextLine();
+            
+            int[] equipoIds = new int[POKEMON_POR_EQUIPO];
+            System.out.println("Ingresa los IDs de " + POKEMON_POR_EQUIPO + " Pokémones para su equipo:");
+
+            for (int k = 0; k < POKEMON_POR_EQUIPO; k++) {
+                System.out.print("ID del Pokémon #" + (k + 1) + ": ");
+                if (scanner.hasNextInt()) {
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    equipoIds[k] = id;
+                } else {
+                    System.out.println("Entrada inválida. Intente de nuevo.");
+                    scanner.nextLine();
+                    k--;
+                }
+            }
+            
+            entrenadores[i] = new Entrenador(i + 1, nombre, equipoIds);
+        }
+        return entrenadores;
+    }
+
     public static Entrenador[] registrarEntrenadoresAleatoriamente(Pokemon[] pokedex) {
         if (pokedex == null || pokedex.length < 6) {
             System.out.println("ADVERTENCIA: Se necesitan al menos 6 Pokémones para crear equipos completos.");

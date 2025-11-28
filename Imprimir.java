@@ -22,4 +22,11 @@ public class Imprimir {
                 pokemones[i].getEntrenador());
         } System.out.println("-".repeat(65));
     }
+
+    public static void imprimirCabeceraPokedex() {
+    int repeticiones = 65;
+    System.out.printf("%-5s | %-15s | %-12s | %-8s | %-8s | %-10s%n",
+                "Id", "Nombre", "Tipo", "Ataque", "Defensa", "Entrenador");
+    System.out.println("-".repeat(repeticiones));
+}
 }

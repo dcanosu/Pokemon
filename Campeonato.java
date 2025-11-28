@@ -12,6 +12,15 @@ public class Campeonato {
         return null;
     }
 
+    private static Entrenador buscarEntrenadorPorNombre(Entrenador[] entrenadores, String nombre) {
+        for (Entrenador e : entrenadores) {
+            if (e != null && e.getNombre().equalsIgnoreCase(nombre)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
     public static void campeonatoSimple(Pokemon[] pokedex, Entrenador[] entrenadores, Scanner scanner) {
         
         if (entrenadores == null || entrenadores.length < 2) {
@@ -42,6 +51,10 @@ public class Campeonato {
                     System.out.println("ADVERTENCIA: Saltando batalla. Pokémon no encontrado en la Pokedex (ID: " + idA + " o " + idB + ").");
                     continue;
                 }
+                
+                System.out.println("Enfrentamiento: " + entA.getNombre() + " (" + pokeA.getNombre() + 
+                                ") vs " + entB.getNombre() + " (" + pokeB.getNombre() + ")");
+                System.out.println("--------------------------------------------------");
 
                 Pokemon ganador = Batalla.simularBatalla(pokeA, pokeB);
 
@@ -61,7 +74,6 @@ public class Campeonato {
     }
     
     private static void mostrarTablaPosiciones(Entrenador[] entrenadores) {
-
         Imprimir.imprimirEncabezado("TABLA DE POSICIONES FINAL");
         System.out.printf("%-15s | %-4s | %-4s | %-4s | %-12s%n",
                 "Entrenador", "PJ", "PG", "PP", "% Victorias");

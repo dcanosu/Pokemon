@@ -6,6 +6,7 @@ public class App {
 
         // Pokemon[] pokemones = Registro.registrarPokemon(miScanner);
         Pokemon[] pokemones = Registro.registrarPokemonesAleatoriamente(35);
+        // Entrenador[] entrenadores = Registro.registrarEntrenadoresManual(pokemones, miScanner);
 
         Entrenador[] entrenadores = Registro.registrarEntrenadoresAleatoriamente(pokemones);
 
