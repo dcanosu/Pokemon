@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
-public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
+public static void ejecutarMenu(Pokemon[] pokemones, Entrenador[] entrenadores, Scanner scanner) {
         int opcion = 0;
         
         do {
@@ -11,6 +11,9 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
             System.out.println("1. Mostrar todos los Pokémones de la Liga");
             System.out.println("2. Buscar Pokémon por Nombre (Búsqueda Lineal)");
             System.out.println("3. Ordenar Pokémones por Ataque (Método Selección)");
+            System.out.println("4. Ordenar Pokémones por ID (Método Inserción)");
+            System.out.println("5. Buscar Pokémon por ID (Búsqueda Binaria)");
+            System.out.println("6. Iniciar Campeonato Simple (Round Robin)");
             System.out.println("0. Salir de la aplicación");
             System.out.println("==============================================");
             System.out.print("Seleccione una opción: ");
@@ -31,6 +34,17 @@ public static void ejecutarMenu(Pokemon[] pokemones, Scanner scanner) {
                         Imprimir.imprimirEncabezado("LISTA DE POKEMONES POR ATAQUE");
                         Ordenamiento.ordenarPorAtaqueSeleccion(pokemones);
                         Imprimir.imprimirPokemones(pokemones);
+                        break;
+                    case 4:
+                        Imprimir.imprimirEncabezado("LISTA DE POKEMONES ORDENADOS POR ID");
+                        Ordenamiento.ordenarPorIdInsercion(pokemones);
+                        Imprimir.imprimirPokemones(pokemones);
+                        break;
+                    case 5:
+                        Busqueda.ejecutarBusquedaBinaria(pokemones, scanner);
+                        break;
+                    case 6:
+                        Campeonato.campeonatoSimple(pokemones, entrenadores, scanner);                        
                         break;
                     case 0:
                         System.out.println("\nGracias por usar la aplicación de la Liga Pokémon. ¡Hasta pronto!");

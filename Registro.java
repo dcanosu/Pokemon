@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Registro {
@@ -79,10 +80,39 @@ public class Registro {
         }return pokemones;
     }
 
-            // System.out.println("Pokemones registrados exitosamente.\n");
-            // for (int i = 0; i < cantidad; i++) {
-            //     System.out.println(pokemones[i].toString());
-            // }
-            // scanner.close();
-}
+    public static Entrenador[] registrarEntrenadoresAleatoriamente(Pokemon[] pokedex) {
+        if (pokedex == null || pokedex.length < 6) {
+            System.out.println("ADVERTENCIA: Se necesitan al menos 6 Pokémones para crear equipos completos.");
+            return null; 
+        }
 
+        final String [] ENTRENADOR_NOMBRES = {"Ash", "Misty", "Gary", "Sabrina"};
+        final int MAX_ENTRENADORES = 4;
+        final int POKEMON_POR_EQUIPO = 6;
+        
+        Entrenador[] entrenadores = new Entrenador[MAX_ENTRENADORES];
+        Random random = new Random();
+
+        int[] idsDisponibles = new int[pokedex.length];
+        for (int i = 0; i < pokedex.length; i++) {
+            idsDisponibles[i] = pokedex[i].getId();
+        }
+
+        for (int i = 0; i < MAX_ENTRENADORES; i++) {
+            int[] equipo = new int[POKEMON_POR_EQUIPO];
+            
+
+            for (int k = 0; k < POKEMON_POR_EQUIPO; k++) {
+                int indiceAleatorio = random.nextInt(pokedex.length);
+                equipo[k] = idsDisponibles[indiceAleatorio]; 
+            }
+            
+            entrenadores[i] = new Entrenador(
+                i + 1, 
+                ENTRENADOR_NOMBRES[i], 
+                equipo
+            );
+        }
+        return entrenadores;
+    }
+}

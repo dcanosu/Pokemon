@@ -6,6 +6,8 @@ public class Pokemon {
     private int ataque;
     private int defensa;
     private String entrenador;
+    private int hp;
+    private final int HP_BASE = 100;     
 
     public Pokemon(int id, String nombre, String tipo, String entrenador) {
         this.id = id;
@@ -15,6 +17,7 @@ public class Pokemon {
 
         this.ataque = (int) (Math.random() * 100) + 1;
         this.defensa = (int) (Math.random() * 100) + 1;
+        this.hp = HP_BASE;
     }
 
     public int getId() {
@@ -39,6 +42,18 @@ public class Pokemon {
 
     public String getEntrenador() {
         return entrenador;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+    
+    public void resetHp() {
+        this.hp = HP_BASE;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
     
     @Override
